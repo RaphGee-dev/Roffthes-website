@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ROFFTHES Academic Research Consult | Excellence in Academic Guidance</title>
+<meta name="description" content="Research website of Roffthes, providing academic guidance, literature synthesis, and statistical data analysis.">
+
+<!-- Browser tab icon -->
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+
+<!-- Google Fonts from index.html: Fraunces for headings, IBM Plex Sans for body -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+  :root {
+    --paper:  #12213f;  /* deep navy background */
+    --ink:    #f3ede0;  /* warm parchment text */
+    --muted:  #99a6c1;  /* soft blue-gray for secondary text */
+    --line:   #2b3b5e;  /* subtle navy-light dividing lines */
+    --accent: #d99a44;  /* gold */
+    --accent2:#c1682e;  /* deeper amber/rust */
+
+    --serif: "Fraunces", Georgia, serif;
+    --sans:  "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+
+  body {
+    margin: 0;
+    background-color: var(--paper);
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='70' viewBox='0 0 140 70'%3E%3Cg fill='none' stroke='%23d99a44' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' opacity='0.08'%3E%3Cg transform='translate(10,10)'%3E%3Cpath d='M0,12 C20,2 42,2 58,12 L58,50 C42,40 20,40 0,50 Z'/%3E%3Cpath d='M58,12 C74,2 96,2 116,12 L116,50 C96,40 74,40 58,50 Z'/%3E%3Cline x1='58' y1='12' x2='58' y2='50'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='70' viewBox='0 0 140 70'%3E%3Cg fill='none' stroke='%23d99a44' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' opacity='0.08'%3E%3Cg transform='translate(10,10)'%3E%3Cpath d='M0,12 L55,0 L110,12 L55,24 Z'/%3E%3Cpath d='M27,17 L27,40 C27,48 83,48 83,40 L83,17'/%3E%3Cline x1='98' y1='12' x2='98' y2='38'/%3E%3Ccircle cx='98' cy='41' r='2.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat, no-repeat;
+    background-position: top right, bottom left;
+    background-size: 140px 70px, 140px 70px;
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  main { max-width: 100%; margin: 0 4rem; padding: 0 1.5rem; }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--ink); }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  /* Header Navigation */
+  .site-header {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 0.5rem 1.5rem;
+    padding: 1rem 1.5rem;
+    background: rgba(18, 33, 63, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand { display: flex; align-items: center; text-decoration: none; gap: 0.75rem; }
+  .brand img { height: 2.6rem; width: auto; display: block; border-radius: 6px; }
+  .brand-text { font-family: var(--serif); font-weight: 700; font-size: 1.2rem; color: var(--ink); letter-spacing: 0.05em; }
+  .brand-sub { display: block; font-size: 0.75rem; color: var(--accent); font-family: var(--sans); font-weight: 400; text-transform: uppercase; }
+
+  .site-header nav { display: flex; gap: 1.25rem; flex-wrap: wrap; align-items: center; }
+  .site-header nav a { color: var(--ink); text-decoration: none; font-size: 0.95rem; padding-bottom: 2px; border-bottom: 2px solid transparent; }
+  .site-header nav a:hover { border-bottom-color: var(--accent); color: var(--ink); }
+
+  /* Hero Section */
+  .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 2rem; padding: 4.5rem 0 4rem; position: relative; }
+  .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("background image.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 75% auto;
+  opacity: 0.08;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+  .hero-badge { display: inline-block; color: var(--accent); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+  h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.1; letter-spacing: -0.01em; margin: 0; }
+  .hero-highlight { color: var(--accent); }
+  .intro { max-width: 34rem; margin: 1.25rem 0 2rem; font-size: 1.1rem; color: var(--ink); }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin: 0; }
+  .button { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.4rem; background: var(--ink); color: var(--paper); text-decoration: none; border: 2px solid var(--ink); border-radius: 2px; font-weight: 600; font-size: 0.95rem; cursor: pointer; }
+  .button:hover { background: var(--accent2); border-color: var(--accent2); color: var(--paper); }
+  .button-plain { background: transparent; color: var(--ink); border-color: var(--line); }
+  .button-plain:hover { background: transparent; color: var(--accent); border-color: var(--accent); }
+  .button-accent { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+  .button-accent:hover { background: var(--accent2); border-color: var(--accent2); color: var(--paper); }
+
+  /* Hero Stats */
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+  .stat-num { font-family: var(--serif); font-weight: 700; font-size: 1.8rem; color: var(--accent); line-height: 1; }
+  .stat-label { font-size: 0.85rem; color: var(--muted); margin-top: 0.25rem; }
+
+  /* Hero Graphic */
+  .hero-graphic { width: 100%; height: auto; }
+  .hero-graphic circle { fill: var(--accent); }
+  .hero-graphic .node-dim { fill: var(--accent2); opacity: 0.6; }
+  .hero-graphic path { fill: none; stroke: var(--accent); stroke-width: 1.4; stroke-linecap: round; opacity: 0.55; stroke-dasharray: 220; stroke-dashoffset: 220; animation: draw-in 1.6s ease-out forwards; }
+  @media (prefers-reduced-motion: reduce) { .hero-graphic path { animation: none; stroke-dashoffset: 0; } }
+  @keyframes draw-in { to { stroke-dashoffset: 0; } }
+
+  /* Section Styles */
+  section.block { padding: 3.5rem 0; border-top: 1px solid var(--line); }
+  h2 { font-family: var(--serif); font-weight: 700; font-size: 2.1rem; margin: 0 0 0.4rem; position: relative; padding-top: 1rem; color: var(--ink); }
+  h2::before { content: ""; position: absolute; top: 0; left: 0; width: 3rem; height: 3px; background: var(--accent); }
+  .section-intro { margin: 0 0 2.25rem; color: var(--muted); max-width: 36rem; }
+
+  /* Stacked Core Values Layout */
+  .values-stack { display: flex; flex-direction: column; gap: 2rem; }
+  
+  .value-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    border: 1px solid var(--line);
+    padding: 1.75rem;
+    background: rgba(255,255,255,0.02);
+    border-radius: 4px;
+    transition: border-color 0.2s;
+  }
+  .value-row:hover { border-color: var(--accent); }
+
+  /* Alternating side order for odd rows */
+  .value-row.reverse {
+    grid-template-areas: "img content";
+  }
+  .value-row.reverse .value-content { grid-area: content; }
+  .value-row.reverse .value-image-container { grid-area: img; }
+
+  .value-image-container {
+    width: 100%;
+    height: 220px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: rgba(0,0,0,0.2);
+  }
+  .value-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .value-content .card-icon { color: var(--accent); margin-bottom: 0.75rem; }
+  .value-content h3 { font-family: var(--serif); font-weight: 600; font-size: 1.35rem; margin: 0 0 0.5rem; color: var(--ink); }
+  .value-content p { margin: 0 0 1rem; font-size: 0.98rem; color: var(--muted); }
+  .value-content .card-tag { font-size: 0.82rem; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: 0.4rem; }
+
+  /* Interactive Cost Estimator */
+  .estimator-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; align-items: start; }
+  .estimator-form { display: flex; flex-direction: column; gap: 1.5rem; }
+  .form-group label { display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: var(--muted); letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+  
+  .option-buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+  .btn-option { background: transparent; border: 1px solid var(--line); color: var(--ink); padding: 0.75rem 0.5rem; font-family: var(--sans); font-size: 0.85rem; font-weight: 500; cursor: pointer; text-align: center; border-radius: 2px; }
+  .btn-option.active { border-color: var(--accent); background: rgba(217, 154, 68, 0.15); color: var(--accent); font-weight: 600; }
+  
+  select.select-custom { width: 100%; background: var(--paper); border: 1px solid var(--line); color: var(--ink); padding: 0.75rem; font-family: var(--sans); font-size: 0.95rem; border-radius: 2px; }
+  select.select-custom:focus { outline: 1px solid var(--accent); }
+  
+  input[type="range"] { width: 100%; accent-color: var(--accent); }
+  .range-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
+
+  .estimator-result { border: 1px solid var(--accent); padding: 1.75rem; background: rgba(217, 154, 68, 0.05); }
+  .estimator-result h3 { font-family: var(--serif); font-size: 1.3rem; margin: 0 0 1rem; color: var(--ink); border-bottom: 1px solid var(--line); padding-bottom: 0.5rem; }
+  .summary-line { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.5rem; }
+  .summary-line span:first-child { color: var(--muted); }
+  .summary-line span:last-child { color: var(--ink); font-weight: 600; }
+  .price-box { margin: 1.5rem 0; padding-top: 1rem; border-top: 1px solid var(--line); }
+  .price-val { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--accent); }
+
+  /* Steps Styling */
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+  .step-card { border-top: 3px solid var(--accent); padding-top: 1rem; }
+  .step-num { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
+  .step-card h3 { font-family: var(--serif); font-size: 1.1rem; margin: 0 0 0.4rem; }
+  .step-card p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+
+  /* Interactive Tools */
+  .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .tool-box { border: 1px solid var(--line); padding: 1.5rem; background: rgba(255,255,255,0.02); }
+  .tool-box h3 { font-family: var(--serif); font-size: 1.2rem; margin: 0 0 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+  .tool-topics { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+  .topic-item { font-size: 0.85rem; padding: 0.75rem; border: 1px solid var(--line); background: rgba(0,0,0,0.2); color: var(--ink); display: flex; gap: 0.5rem; align-items: flex-start; }
+
+  .tabs-cit { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+  .cit-btn { background: transparent; border: 1px solid var(--line); color: var(--muted); font-size: 0.8rem; padding: 0.4rem 0.8rem; cursor: pointer; }
+  .cit-btn.active { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+  .cit-display { font-family: monospace; font-size: 0.85rem; padding: 1rem; border: 1px solid var(--line); background: rgba(0,0,0,0.3); color: var(--accent); line-height: 1.5; }
+
+  /* Reviews */
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+  .review-card { border: 1px solid var(--line); padding: 1.5rem; background: rgba(255,255,255,0.02); }
+  .review-stars { color: var(--accent); margin-bottom: 0.75rem; font-size: 0.9rem; }
+  .review-text { font-style: italic; font-size: 0.95rem; color: var(--ink); margin-bottom: 1rem; }
+  .review-author { font-size: 0.85rem; color: var(--muted); }
+  .review-author strong { color: var(--accent); display: block; }
+
+  /* Contact & QR */
+  .contact-box { border: 1px solid var(--line); border-left: 4px solid var(--accent); padding: 1.75rem 2rem; background: rgba(255,255,255,0.03); }
+  .contact-list { display: grid; grid-template-columns: max-content 1fr; gap: 0.85rem 1.75rem; margin: 0; }
+  .contact-list dt { font-weight: 600; color: var(--ink); }
+  .contact-list dd { margin: 0; color: var(--muted); }
+
+  .contact-qr { display: flex; align-items: center; gap: 1.5rem; margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--line); }
+  .contact-qr img { width: 8rem; height: 8rem; object-fit: contain; background: #ffffff; border: 2px solid var(--accent); padding: 0.4rem; }
+  .contact-qr p { margin: 0 0 0.5rem; }
+  .contact-qr .meta { color: var(--muted); font-size: 0.92rem; margin: 0; }
+
+  /* Modal Dialog */
+  .modal-overlay { position: fixed; inset: 0; z-index: 1000; background: rgba(18, 33, 63, 0.85); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; padding: 1rem; }
+  .modal-overlay.hidden { display: none; }
+  .modal-box { background: var(--paper); border: 2px solid var(--accent); max-width: 450px; width: 100%; padding: 2rem; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+  .modal-close { position: absolute; top: 1rem; right: 1rem; background: transparent; border: none; color: var(--muted); cursor: pointer; font-size: 1.2rem; }
+  .modal-close:hover { color: var(--accent); }
+  .modal-box h3 { font-family: var(--serif); font-size: 1.5rem; margin: 0 0 0.5rem; color: var(--ink); }
+  .modal-form { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
+  .modal-form input, .modal-form textarea { width: 100%; background: rgba(0,0,0,0.2); border: 1px solid var(--line); color: var(--ink); padding: 0.75rem; font-family: var(--sans); font-size: 0.9rem; }
+  .modal-form input:focus, .modal-form textarea:focus { outline: 1px solid var(--accent); }
+
+  /* Floating WhatsApp Bar */
+  .floating-wa { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 90; }
+  .floating-wa a { display: flex; align-items: center; gap: 0.6rem; background: var(--accent); color: var(--paper); padding: 0.75rem 1.25rem; font-weight: 600; font-size: 0.9rem; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); text-decoration: none; }
+  .floating-wa a:hover { background: var(--accent2); }
+
+  /* Footer */
+  .site-footer { padding: 2.5rem 1.5rem; border-top: 1px solid var(--line); text-align: center; color: var(--muted); font-size: 0.9rem; margin-top: 4rem; }
+  .site-footer p { margin: 0; }
+
+  /* Responsive Adjustments */
+  @media (max-width: 48rem) {
+    .value-row, .value-row.reverse {
+      grid-template-columns: 1fr;
+      grid-template-areas: none;
+    }
+    .value-row.reverse .value-content { grid-area: auto; }
+    .value-row.reverse .value-image-container { grid-area: auto; }
+  }
+
+  @media (max-width: 42rem) {
+    .hero { grid-template-columns: 1fr; padding: 3rem 0 2.5rem; }
+    .hero-graphic { max-width: 12rem; margin: 0 auto; order: -1; }
+    .estimator-container, .tools-grid { grid-template-columns: 1fr; }
+    .contact-list { grid-template-columns: 1fr; gap: 0.15rem; }
+    .contact-list dd { margin-bottom: 0.75rem; }
+    .contact-box { padding: 1.5rem; }
+  }
+</style>
+</head>
+
+<body>
+
+  <!-- Sticky Navigation Header -->
+  <header class="site-header">
+    <a class="brand" href="#home">
+      <img src="logo.jpg" alt="ROFFTHES Logo">
+      <div>
+        <span class="brand-text">ROFFTHES</span>
+        <span class="brand-sub">Research Consult</span>
+      </div>
+    </a>
+    <nav aria-label="Main Navigation">
+      <a href="#home">Home</a>
+      <a href="#estimator">Cost Estimator</a>
+      <a href="#core-values">Core Values</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#tools">Tools</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div>
+        <span class="hero-badge">Ghana's Premier Academic Guidance Consultancy</span>
+        <h1>Elevate Your <span class="hero-highlight">Academic Research</span> &amp; Thesis Success</h1>
+        <p class="intro">
+          Tailored step-by-step guidance, literature synthesis, methodology design, and statistical data analysis for Undergraduate, Master's, and PhD students across Ghana and beyond.
+        </p>
+        <p class="actions">
+          <button onclick="openBookingModal()" class="button button-accent">
+            <i data-lucide="calendar" style="width:18px;height:18px;"></i>
+            <span>Book Free Consultation</span>
+          </button>
+          <a class="button button-plain" href="#estimator">
+            <i data-lucide="calculator" style="width:18px;height:18px;"></i>
+            <span>Estimate Cost</span>
+          </a>
+        </p>
+
+        <!-- Stats Counter -->
+        <div class="stats-grid">
+          <div>
+            <div class="stat-num">70+</div>
+            <div class="stat-label">Projects Guided</div>
+          </div>
+          <div>
+            <div class="stat-num">99.4%</div>
+            <div class="stat-label">On-Time Delivery</div>
+          </div>
+          <div>
+            <div class="stat-num">24/7</div>
+            <div class="stat-label">Client Support</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Citation SVG Graphic -->
+      <svg class="hero-graphic" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M40,40 L110,90 L180,50" />
+        <path d="M110,90 L90,160" />
+        <path d="M110,90 L170,150" />
+        <path d="M40,40 L40,140" />
+        <path d="M40,140 L90,160" />
+        <circle cx="40" cy="40" r="7"/>
+        <circle cx="180" cy="50" r="5" class="node-dim"/>
+        <circle cx="110" cy="90" r="9"/>
+        <circle cx="40" cy="140" r="5" class="node-dim"/>
+        <circle cx="90" cy="160" r="6"/>
+        <circle cx="170" cy="150" r="5" class="node-dim"/>
+      </svg>
+    </section>
+
+    <!-- Interactive Price & Timeline Estimator -->
+    <section id="estimator" class="block">
+      <h2>Interactive Consultation Estimator</h2>
+      <p class="section-intro">Select your academic level, scope of research assistance, and timeline to calculate an estimated plan for your thesis or project.</p>
+
+      <div class="estimator-container">
+        <!-- Controls -->
+        <div class="estimator-form">
+          <div class="form-group">
+            <label>1. Academic Level</label>
+            <div class="option-buttons">
+              <button type="button" onclick="setAcademicLevel('undergrad', this)" class="btn-option active">Undergrad</button>
+              <button type="button" onclick="setAcademicLevel('masters', this)" class="btn-option">Master's / MPhil</button>
+              <button type="button" onclick="setAcademicLevel('phd', this)" class="btn-option">PhD / Doctoral</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>2. Service / Scope Required</label>
+            <select id="scope-select" onchange="calculateEstimate()" class="select-custom">
+              <option value="topic">Topic Selection &amp; Proposal Guidance (Ch. 1)</option>
+              <option value="lit_review">Literature Review &amp; Theoretical Framework (Ch. 2)</option>
+              <option value="methodology">Methodology &amp; Data Analysis (SPSS/Stata/R) (Ch. 3 &amp; 4)</option>
+              <option value="full_thesis" selected>Full Thesis / Long Essay Comprehensive Guidance</option>
+              <option value="editing">Proofreading, Formatting &amp; Turnitin Plagiarism Check</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+              <label style="margin:0;">3. Desired Turnaround Time</label>
+              <span id="days-display" style="color:var(--accent); font-weight:600; font-size:0.9rem;">14 Days</span>
+            </div>
+            <input type="range" id="timeline-range" min="3" max="30" value="14" oninput="updateTimeline(this.value)">
+            <div class="range-labels">
+              <span>3 Days (Express)</span>
+              <span>14 Days (Standard)</span>
+              <span>30 Days (Extended)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Output -->
+        <div class="estimator-result">
+          <h3>Estimated Guidance Plan</h3>
+          <div class="summary-line">
+            <span>Level:</span>
+            <span id="summary-level">UNDERGRADUATE</span>
+          </div>
+          <div class="summary-line">
+            <span>Module:</span>
+            <span id="summary-scope">Full Thesis Guidance</span>
+          </div>
+          <div class="summary-line">
+            <span>Timeline:</span>
+            <span id="summary-timeline">14 Days</span>
+          </div>
+
+          <div class="price-box">
+            <span style="font-size:0.8rem; color:var(--muted); display:block;">Estimated Budget Range (GHS)</span>
+            <div class="price-val" id="price-display">GHS 1,200 - 1,800</div>
+            <p style="font-size:0.75rem; color:var(--muted); margin:0.5rem 0 0;">*Final quote may vary based on specific field of study and data requirements.</p>
+          </div>
+
+          <button onclick="openBookingModal()" class="button button-accent" style="width:100%; justify-content:center;">
+            <span>Proceed with This Plan</span>
+            <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values Section (Stacked One-After-Another with Side Images) -->
+    <section id="core-values" class="block">
+      <h2>Our Core Values</h2>
+      <p class="section-intro">The guiding principles and commitments that drive our research support and student collaborations.</p>
+
+      <div class="values-stack">
+        
+        <!-- Value 1 -->
+        <div class="value-row">
+          <div class="value-content">
+            <div class="card-icon"><i data-lucide="clock" style="width:28px;height:28px;"></i></div>
+            <h3>24/7 Client Support</h3>
+            <p>We're available round-the-clock to answer questions, address supervisor updates, and support clients at every stage of their research.</p>
+            <div class="card-tag"><i data-lucide="check-circle" style="width:14px;height:14px;"></i> Always Active Desk</div>
+          </div>
+          <div class="value-image-container">
+            <img src="value1.jpg" alt="24/7 Client Support Image" onerror="this.src='https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=600&q=80'">
+          </div>
+        </div>
+
+        <!-- Value 2 -->
+        <div class="value-row reverse">
+          <div class="value-content">
+            <div class="card-icon"><i data-lucide="zap" style="width:28px;height:28px;"></i></div>
+            <h3>On-Time Delivery</h3>
+            <p>We respect strict university submission deadlines. Every project is tracked so chapters are delivered well ahead of schedule.</p>
+            <div class="card-tag"><i data-lucide="check-circle" style="width:14px;height:14px;"></i> Punctuality Guaranteed</div>
+          </div>
+          <div class="value-image-container">
+            <img src="value2.jpg" alt="On-Time Delivery Image" onerror="this.src='https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=600&q=80'">
+          </div>
+        </div>
+
+        <!-- Value 3 -->
+        <div class="value-row">
+          <div class="value-content">
+            <div class="card-icon"><i data-lucide="users" style="width:28px;height:28px;"></i></div>
+            <h3>Professional Researchers</h3>
+            <p>Work directly with experienced Ghanaian post-graduate scholars, statisticians, and academic advisors with domain expertise.</p>
+            <div class="card-tag"><i data-lucide="check-circle" style="width:14px;height:14px;"></i> MPhil &amp; PhD Mentors</div>
+          </div>
+          <div class="value-image-container">
+            <img src="value3.jpg" alt="Professional Researchers Image" onerror="this.src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80'">
+          </div>
+        </div>
+
+        <!-- Value 4 -->
+        <div class="value-row reverse">
+          <div class="value-content">
+            <div class="card-icon"><i data-lucide="smile" style="width:28px;height:28px;"></i></div>
+            <h3>Satisfaction &amp; Revisions</h3>
+            <p>We work with you continuously. Iterative revisions are provided based on supervisor comments until full thesis approval.</p>
+            <div class="card-tag"><i data-lucide="check-circle" style="width:14px;height:14px;"></i> Unlimited Feedback Support</div>
+          </div>
+          <div class="value-image-container">
+            <img src="value4.jpg" alt="Satisfaction & Revisions Image" onerror="this.src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80'">
+          </div>
+        </div>
+
+        <!-- Value 5 -->
+        <div class="value-row">
+          <div class="value-content">
+            <div class="card-icon"><i data-lucide="lock" style="width:28px;height:28px;"></i></div>
+            <h3>Strict Confidentiality</h3>
+            <p>Your research ideas, personal information, and institutional details are kept 100% confidential under complete privacy protocols.</p>
+            <div class="card-tag"><i data-lucide="check-circle" style="width:14px;height:14px;"></i> Protected Data Policy</div>
+          </div>
+          <div class="value-image-container">
+            <img src="value5.jpg" alt="Strict Confidentiality Image" onerror="this.src='https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80'">
+          </div>
+        </div>
+
+        <!-- Value 6 -->
+        <div class="value-row reverse">
+          <div class="value-content">
+            <div class="card-icon"><i data-lucide="file-check" style="width:28px;height:28px;"></i></div>
+            <h3>Originality Guaranteed</h3>
+            <p>Every draft is crafted strictly against plagiarism, complete with Turnitin similarity index reports for total academic integrity.</p>
+            <div class="card-tag"><i data-lucide="check-circle" style="width:14px;height:14px;"></i> Turnitin Report Included</div>
+          </div>
+          <div class="value-image-container">
+            <img src="value6.jpg" alt="Originality Guaranteed Image" onerror="this.src='https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80'">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="block">
+      <h2>How We Work With You</h2>
+      <p class="section-intro">A clear, collaborative consultation process from topic selection down to your final defense.</p>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h3>Share Project Brief</h3>
+          <p>Submit your topic, institutional requirements, supervisor notes, and submission deadline.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h3>Consultant Matching</h3>
+          <p>We pair you with a domain specialist suited to your field (Business, STEM, Health, Social Sciences).</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h3>Iterative Guidance</h3>
+          <p>Receive step-by-step guidance, chapter drafts, data models, and literature feedback.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <h3>Defense Readiness</h3>
+          <p>Get fully prepared for your thesis defense with presentation summaries and Turnitin reports.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Tools Section -->
+    <section id="tools" class="block">
+      <h2>Interactive Research Tools</h2>
+      <p class="section-intro">Free student utilities to explore research gaps or test citation reference formats.</p>
+
+      <div class="tools-grid">
+        <!-- Tool 1: Topic Finder -->
+        <div class="tool-box">
+          <h3><i data-lucide="lightbulb" style="color:var(--accent);"></i> Topic Gap Finder</h3>
+          <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.75rem;">Select a discipline to see sample high-impact research topics:</p>
+          
+          <select id="topic-field" onchange="generateSampleTopics()" class="select-custom" style="margin-bottom:0.5rem;">
+            <option value="business">Business Admin &amp; Entrepreneurship (Ghana Context)</option>
+            <option value="health">Public Health &amp; Nursing</option>
+            <option value="education">Educational Leadership &amp; Curriculum</option>
+            <option value="tech">Computer Science &amp; Information Systems</option>
+          </select>
+
+          <div id="topics-container" class="tool-topics">
+            <div class="topic-item">
+              <i data-lucide="arrow-right" style="width:14px; height:14px; color:var(--accent); flex-shrink: 0; margin-top:3px;"></i>
+              <span>Evaluating Mobile Money Adoption on Micro-Enterprise Growth in Rural Ghana.</span>
+            </div>
+            <div class="topic-item">
+              <i data-lucide="arrow-right" style="width:14px; height:14px; color:var(--accent); flex-shrink: 0; margin-top:3px;"></i>
+              <span>Corporate Governance Practices and Financial Performance of Listed Banks in West Africa.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool 2: Citation Format -->
+        <div class="tool-box">
+          <h3><i data-lucide="bookmark" style="color:var(--accent);"></i> Citation Quick-Format</h3>
+          <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.75rem;">Switch between institutional citation formatting styles:</p>
+
+          <div class="tabs-cit">
+            <button type="button" onclick="setCitationStyle('apa', this)" class="cit-btn active">APA 7th</button>
+            <button type="button" onclick="setCitationStyle('harvard', this)" class="cit-btn">Harvard</button>
+            <button type="button" onclick="setCitationStyle('chicago', this)" class="cit-btn">Chicago</button>
+          </div>
+
+          <div id="citation-box" class="cit-display">
+            <span style="color:var(--muted); display:block; font-size:0.75rem; font-family:var(--sans);">Journal Article Reference:</span>
+            Mensah, K., &amp; Ampofo, E. (2024). Sustainable agriculture in Sub-Saharan Africa. <i>Journal of African Research</i>, 15(2), 104–120.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials / Success Reviews -->
+    <section id="testimonials" class="block">
+      <h2>Student Testimonials</h2>
+      <p class="section-intro">Feedback from undergraduate and postgraduate students guided across major institutions.</p>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"ROFFTHES was a lifesaver during my MPhil thesis data analysis. The statistical breakdown in SPSS was explained so clearly that I defended Chapter 4 with total confidence!"</p>
+          <div class="review-author">
+            <strong>Abena K.</strong>
+            MPhil Student, UG Legon
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Their 24/7 availability is 100% genuine. I sent supervisor corrections late at night before a deadline and got structured guidance by early morning. Highly recommended!"</p>
+          <div class="review-author">
+            <strong>Kwame O.</strong>
+            BSc Candidate, KNUST
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"The literature synthesis and Turnitin originality report gave me total peace of mind. Excellent and highly professional academic consult team in Accra."</p>
+          <div class="review-author">
+            <strong>Esi M.</strong>
+            MA Student, UCC
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Details Section -->
+    <section id="contact" class="block">
+      <h2>Contact Us</h2>
+      <p class="section-intro">Have questions about thesis guidance, data analysis, or consultations? Get in touch today.</p>
+
+      <div class="contact-box">
+        <dl class="contact-list">
+          <dt>Email</dt>
+          <dd><a href="mailto:consult@roffthes.com">consult@roffthes.com</a></dd>
+
+          <dt>Locations</dt>
+          <dd>Accra &amp; Cape Coast Hubs, Ghana</dd>
+
+          <dt>telephone</dt>
+          <dd><a href="tel:+233542447870">+233 54 244 7870</a></dd>
+
+          <dt>WhatsApp</dt>
+          <dd><a href="https://wa.me/233542447870" target="_blank" rel="noopener">+233 54 244 7870</a></dd>
+
+        </dl>
+
+        <div class="contact-qr">
+          <img src="whatsapp-qr.png" alt="WhatsApp QR Code">
+          <div>
+            <p>Scan to chat on WhatsApp</p>
+            <p class="meta">Opens a direct conversation with a ROFFTHES consultant from your phone camera.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Floating WhatsApp Quick Button -->
+  <div class="floating-wa">
+    <a href="https://wa.me/233542447870?text=Hello%20ROFFTHES,%20I%20need%20academic%20research%20guidance" target="_blank" rel="noopener">
+      <i data-lucide="message-circle" style="width:20px;height:20px;"></i>
+      <span>Chat on WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- Booking Modal -->
+  <div id="booking-modal" class="modal-overlay hidden">
+    <div class="modal-box">
+      <button onclick="closeBookingModal()" class="modal-close"><i data-lucide="x"></i></button>
+      <h3>Book Consultation</h3>
+      <p style="font-size:0.85rem; color:var(--muted); margin:0;">Connect directly with a ROFFTHES academic research consultant.</p>
+
+      <form onsubmit="handleModalSubmit(event)" class="modal-form">
+        <div>
+          <input type="text" required placeholder="Full Name (e.g. Kwame Mensah)">
+        </div>
+        <div>
+          <input type="text" required placeholder="Institution & Academic Level (e.g. UG Legon - Master's)">
+        </div>
+        <div>
+          <input type="tel" required placeholder="WhatsApp Phone Number (+233...)">
+        </div>
+        <div>
+          <textarea rows="3" placeholder="Briefly describe your thesis or project topic..."></textarea>
+        </div>
+        <button type="submit" class="button button-accent" style="width:100%; justify-content:center;">Submit Request</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2026 ROFFTHES Academic Research Consultancy. All rights reserved.</p>
+    <p>Designed &amp; Developed by Agyemang Raphael Duah <a href="https://wa.me/233533220064" target="_blank" rel="noopener">WhatsApp</a>
+    <a href ="https://www.google.com/agyemangraphaelduah7@gmail.com" target="_blank" rel="noopener">Google</a>
+    </p>
+  </footer>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Initialize Icons
+    lucide.createIcons();
+
+    // Cost & Timeline Estimator Logic
+    let currentLevel = 'undergrad';
+
+    function setAcademicLevel(level, btn) {
+      currentLevel = level;
+      document.querySelectorAll('.btn-option').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      calculateEstimate();
+    }
+
+    function updateTimeline(days) {
+      document.getElementById('days-display').innerText = days + ' Days';
+      calculateEstimate();
+    }
+
+    function calculateEstimate() {
+      const scope = document.getElementById('scope-select').value;
+      const days = parseInt(document.getElementById('timeline-range').value);
+
+      let baseMin = 100;
+      let baseMax = 150;
+
+      if (currentLevel === 'masters') {
+        baseMin *= 3.0
+        baseMax *= 3.0;
+      } else if (currentLevel === 'phd') {
+        baseMin *= 3.5;
+        baseMax *= 3.5;
+      }
+
+      if (scope === 'lit_review') {
+        baseMin *= 1.2;
+        baseMax *= 1.2;
+      } else if (scope === 'methodology') {
+        baseMin *= 1.2;
+        baseMax *= 1.2;
+      } else if (scope === 'full_thesis') {
+        baseMin *= 3.0;
+        baseMax *= 3.0;
+      } else if (scope === 'editing') {
+        baseMin *= 0.4;
+        baseMax *= 0.4;
+      }
+
+      if (days < 7) {
+        baseMin *= 1.3;
+        baseMax *= 1.3;
+      }
+
+      const format = (num) => 'GHS ' + Math.round(num).toLocaleString();
+
+      document.getElementById('price-display').innerText = `${format(baseMin)} - ${format(baseMax)}`;
+      document.getElementById('summary-level').innerText = currentLevel.toUpperCase();
+      document.getElementById('summary-timeline').innerText = days + ' Days';
+      
+      const scopeText = document.getElementById('scope-select').options[document.getElementById('scope-select').selectedIndex].text;
+      document.getElementById('summary-scope').innerText = scopeText.split('(')[0];
+    }
+
+    // Topic Finder Helper
+    function generateSampleTopics() {
+      const field = document.getElementById('topic-field').value;
+      const container = document.getElementById('topics-container');
+
+      const topicsMap = {
+        business: [
+          "Evaluating Mobile Money Adoption on Micro-Enterprise Growth in Rural Ghana.",
+          "Corporate Governance Practices and Financial Performance of Listed Banks in West Africa."
+        ],
+        health: [
+          "Assessing Telemedicine Feasibility in District Hospitals across Greater Accra.",
+          "Factors Influencing Maternal Healthcare Utilization in Rural Ashanti Region."
+        ],
+        education: [
+          "Impact of Digital Learning Tools on Tertiary STEM Students in Post-Pandemic Ghana.",
+          "Teacher Professional Development and Student Academic Retention in Secondary Schools."
+        ],
+        tech: [
+          "Cybersecurity Preparedness in Ghanaian Financial Tech Startups: A Qualitative Gap Analysis.",
+          "Machine Learning Frameworks for Agricultural Yield Forecasting in Northern Ghana."
+        ]
+      };
+
+      const selected = topicsMap[field] || topicsMap.business;
+      container.innerHTML = selected.map(topic => `
+        <div class="topic-item">
+          <i data-lucide="arrow-right" style="width:14px; height:14px; color:var(--accent); shrink-0; margin-top:3px;"></i>
+          <span>${topic}</span>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    // Citation Style Switcher
+    function setCitationStyle(style, btn) {
+      document.querySelectorAll('.cit-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const box = document.getElementById('citation-box');
+      if (style === 'apa') {
+        box.innerHTML = `<span style="color:var(--muted); display:block; font-size:0.75rem; font-family:var(--sans);">Journal Article (APA 7th):</span>Mensah, K., &amp; Ampofo, E. (2024). Sustainable agriculture in Sub-Saharan Africa. <i>Journal of African Research</i>, 15(2), 104–120.`;
+      } else if (style === 'harvard') {
+        box.innerHTML = `<span style="color:var(--muted); display:block; font-size:0.75rem; font-family:var(--sans);">Journal Article (Harvard):</span>Mensah, K. and Ampofo, E., 2024. Sustainable agriculture in Sub-Saharan Africa. <i>Journal of African Research</i>, 15(2), pp.104-120.`;
+      } else if (style === 'chicago') {
+        box.innerHTML = `<span style="color:var(--muted); display:block; font-size:0.75rem; font-family:var(--sans);">Journal Article (Chicago):</span>Mensah, Kwame, and Eric Ampofo. "Sustainable Agriculture in Sub-Saharan Africa." <i>Journal of African Research</i> 15, no. 2 (2024): 104-120.`;
+      }
+    }
+
+    // Modal Handlers
+    function openBookingModal() {
+      document.getElementById('booking-modal').classList.remove('hidden');
+    }
+
+    function closeBookingModal() {
+      document.getElementById('booking-modal').classList.add('hidden');
+    }
+
+    function handleModalSubmit(e) {
+      e.preventDefault();
+      alert('Thank you! Your consultation request has been submitted. A ROFFTHES specialist will contact you via WhatsApp shortly.');
+      closeBookingModal();
+    }
+  </script>
+</body>
+</html>
